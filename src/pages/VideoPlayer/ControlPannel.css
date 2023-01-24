@@ -1,0 +1,110 @@
+.controller-root {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  width: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.controller-mask {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.controller-bottom-bar {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(100, 100, 100, 0.1);
+}
+
+.process-bar-root {
+  width: 100%;
+  position: relative;
+  height: 4px;
+  background-color: aliceblue;
+}
+
+.process-bar-current {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: aquamarine;
+  transform-origin: left;
+}
+
+.controller-buttons {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.play-button {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  fill: #ffffff;
+}
+
+.indicator-container {
+  position: absolute;
+  left: 0;
+  top: -10px;
+  width: 100%;
+  height: 24px;
+  z-index: 2;
+  cursor: pointer;
+}
+
+
+.process-indicator {
+  width: 4px;
+  height: 4px;
+  background-color: black;
+  border-radius: 2px;
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  pointer-events: none;
+}
+
+.volumn-status {
+  top: calc(50% - 15px);
+  display: flex;
+  position: absolute;
+  z-index: 2;
+  margin-left: calc(50% - 40px);
+  width: 80px;
+  height: 30px;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+}
+
+.volumn-status-child {
+  width: 80%;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.volumn-value {
+  background-color: aqua;
+  width: 100%;
+  height: 100%;
+  transform-origin: left;
+}
