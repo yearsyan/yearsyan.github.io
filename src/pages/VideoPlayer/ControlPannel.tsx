@@ -95,7 +95,7 @@ export default function ControlPannel(props: {
   const [pointerStatus, setPointerStatus] = useState<MaskPointerStatus>(MaskPointerStatus.NONE)
   const showControlBarTimer = useRef<number | null>(null)
   const showVolumeTimer = useRef<number | null>(null)
-  const lastPointer = useRef<{ x: number, y: number } | undefined>()
+  const lastPointer = useRef<{ x: number, y: number, time: number } | undefined>()
   const [volumn, setVolumn] = useState<number | undefined>()
 
   const showControlBarTemp = () => {
@@ -116,7 +116,7 @@ export default function ControlPannel(props: {
       onPointerDown={e => {
         if (e.pointerType === 'touch' || e.pointerType === 'pen') {
           showControlBarTemp()
-          lastPointer.current = { x: e.clientX, y: e.clientY }
+          lastPointer.current = { x: e.clientX, y: e.clientY, time: Date.now() }
           setPointerStatus(MaskPointerStatus.TOUCH_DOWN)
         }
       }}
@@ -128,7 +128,7 @@ export default function ControlPannel(props: {
         const touch = e.touches.item(0)
         const deltaX = touch.clientX - lastPointer.current.x
         const deltaY = touch.clientY - lastPointer.current.y
-        lastPointer.current = { x: touch.clientX, y: touch.clientY }
+        lastPointer.current = { x: touch.clientX, y: touch.clientY, time: Date.now() }
         if (pointerStatus === MaskPointerStatus.TOUCH_DOWN && e.touches.length === 1) {
 
           if (Math.abs(deltaX) < Math.abs(deltaY)) {
@@ -163,6 +163,7 @@ export default function ControlPannel(props: {
           setPointerStatus(MaskPointerStatus.NONE)
         }
       }}
+      onMouseMove={() => showControlBarTemp()}
       onPointerUp={() => {
 
       }} />

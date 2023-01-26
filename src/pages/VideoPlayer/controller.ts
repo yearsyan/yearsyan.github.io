@@ -1,6 +1,22 @@
 import { Danmaku } from "./danmaku"
+import HLS from 'hls.js'
+
+interface PlayerStatus {
+  canPlay: boolean;
+  playing: boolean;
+  videoRenderWidth: number;
+  videoRenderHeight: number;
+  offsetX: number;
+  offsetY: number;
+  upFrameTime: number;
+  tick: number;
+  danmakus: Set<Danmaku>;
+  ctx: CanvasRenderingContext2D;
+  hls?: HLS 
+}
 
 export interface VideoController {
+  setSource: (url: string) => void
   stop: () => void
   play: () => void
   pause: () => void
@@ -9,6 +25,7 @@ export interface VideoController {
   readonly duration: number
   currentTime: number
   volume: number
+  playbackRate: number
 }
 
 export function handleCanvas(element: HTMLCanvasElement) {
@@ -21,7 +38,7 @@ export function handleCanvas(element: HTMLCanvasElement) {
     return
   }
   
-  const status = {
+  const status: PlayerStatus = {
     canPlay: true,
     playing: false,
     videoRenderWidth: 0,
@@ -31,7 +48,7 @@ export function handleCanvas(element: HTMLCanvasElement) {
     upFrameTime: -1,
     tick: 0,
     danmakus: new Set<Danmaku>(),
-    ctx
+    ctx,
   }
   
   const video = document.createElement('video')
@@ -52,7 +69,7 @@ export function handleCanvas(element: HTMLCanvasElement) {
       status.offsetY = (canvasSize.height - renderHeight) / 2
     }
   }
-  video.src= '/fa.mp4'
+
   video.controls = false
   // video.muted = true
   video.addEventListener('loadedmetadata', layout)
@@ -80,12 +97,24 @@ export function handleCanvas(element: HTMLCanvasElement) {
     requestAnimationFrame(render)
   }
 
-  // video.play().then(() => {
-  //   status.playing = true
-  //   requestAnimationFrame(render)
-  // })
   requestAnimationFrame(render)
   return {
+    setSource(url: string) {
+      if (status.hls) {
+        status.hls.detachMedia()
+        status.hls.destroy()
+        status.hls = undefined
+      }
+      if (typeof url === 'string') {
+        if (url.endsWith('.m3u8')) {
+          status.hls = new HLS()
+          status.hls.loadSource(url)
+          status.hls.attachMedia(video)
+        }
+      } else {
+        video.src = url
+      }
+    },
     stop() {
       status.canPlay = false
     },
@@ -139,6 +168,12 @@ export function handleCanvas(element: HTMLCanvasElement) {
     },
     set volume(v) {
       video.volume = v
+    },
+    get playbackRate() {
+      return video.playbackRate
+    },
+    set playbackRate(v) {
+      video.playbackRate = v
     }
   }
 
