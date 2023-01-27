@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom"
 import './App.css';
 import { CanvasPlayground } from './pages/CanvasPlayground/CanvasPlayground';
 import { Home } from './pages/Home/Home';
-import VideoPlayer from './pages/VideoPlayer';
+import VideoPlayer from './pages/Player';
 
 function App() {
   return (

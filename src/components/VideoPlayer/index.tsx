@@ -4,7 +4,11 @@ import ControlPannel from './ControlPannel';
 import './index.css'
 import { nextNFrame } from './utils';
 
-export default function VideoPlayer() {
+export interface PlayerProps {
+  sourceList: Array<{url: string, name: string}>
+}
+
+export default function VideoPlayer(props: PlayerProps) {
   const videoCanvasRef = useRef<HTMLCanvasElement>(null);
   const playerRef = useRef<HTMLDivElement>(null);
   const [controller, setController] = useState<VideoController|null>(null);
@@ -12,7 +16,6 @@ export default function VideoPlayer() {
     if (videoCanvasRef.current && playerRef.current) {
       const handler = handleCanvas(videoCanvasRef.current)
       if (handler) {
-        handler.setSource('https://vip.ffzy-play6.com/20221215/20227_d2c07af7/index.m3u8')
         const resizeListener = nextNFrame(() => {
           console.log('resize')
           if (!playerRef.current) {
@@ -41,6 +44,12 @@ export default function VideoPlayer() {
       }
     }
   }, [])
+
+  useEffect(() => {
+    if (controller && Array.isArray(props.sourceList) && props.sourceList.length > 0) {
+      controller.setSource(props.sourceList[0].url)
+    }
+  }, [props.sourceList, controller])
 
   return <div className='player-root' ref={playerRef}>
     <canvas className='player-canvas' ref={videoCanvasRef} />

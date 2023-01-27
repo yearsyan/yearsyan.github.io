@@ -53,25 +53,37 @@ export function handleCanvas(element: HTMLCanvasElement) {
   
   const video = document.createElement('video')
   const layout = () => {
-    let scale = canvasSize.height / video.videoHeight
-    const renderWidth = video.videoWidth * scale
-    if (renderWidth <= canvasSize.width) {
-      status.videoRenderWidth = renderWidth
-      status.videoRenderHeight = canvasSize.height
+    if (canvasSize.width/canvasSize.height > video.videoWidth/video.videoHeight) {
+      element.height = video.videoHeight
+      element.width = video.videoHeight*(canvasSize.width/canvasSize.height)
       status.offsetY = 0
-      status.offsetX = (canvasSize.width - renderWidth) / 2
+      status.offsetX = (element.width - video.videoWidth)/2
     } else {
-      scale = canvasSize.width / video.videoWidth
-      const renderHeight = video.videoHeight * scale
-      status.videoRenderWidth = canvasSize.width
-      status.videoRenderHeight = renderHeight
+      element.width = video.videoWidth
+      element.height = video.videoWidth*(canvasSize.height/canvasSize.width)
       status.offsetX = 0
-      status.offsetY = (canvasSize.height - renderHeight) / 2
+      status.offsetY = (element.height - video.videoHeight)/2
     }
+    status.videoRenderHeight = video.videoHeight
+    status.videoRenderWidth = video.videoWidth
+    // let scale = canvasSize.height / video.videoHeight
+    // const renderWidth = video.videoWidth * scale
+    // if (renderWidth <= canvasSize.width) {
+    //   status.videoRenderWidth = renderWidth
+    //   status.videoRenderHeight = canvasSize.height
+    //   status.offsetY = 0
+    //   status.offsetX = (canvasSize.width - renderWidth) / 2
+    // } else {
+    //   scale = canvasSize.width / video.videoWidth
+    //   const renderHeight = video.videoHeight * scale
+    //   status.videoRenderWidth = canvasSize.width
+    //   status.videoRenderHeight = renderHeight
+    //   status.offsetX = 0
+    //   status.offsetY = (canvasSize.height - renderHeight) / 2
+    // }
   }
 
   video.controls = false
-  // video.muted = true
   video.addEventListener('loadedmetadata', layout)
   video.addEventListener('seeking', () => {
     status.playing = false
