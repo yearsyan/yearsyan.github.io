@@ -48,7 +48,7 @@
 
 <h2>2. 数据存储位置</h2>
 <ul>
-  <li><strong>服务器和连接配置</strong>：网关地址、访问令牌、SSH 主机和凭据保存在你的设备上，用于连接你自己的服务器。部分敏感凭据可能保存在操作系统提供的安全存储中。</li>
+  <li><strong>服务器和连接配置</strong>：网关地址和 SSH 主机等连接信息保存在你的设备上。在 iOS 上，网关访问令牌、SSH 密码和托管的 SSH 私钥保存在系统钥匙串中，不写入 UserDefaults。</li>
   <li><strong>对话与工作区</strong>：会话、消息、文件和工具状态主要保存在你配置的 ohpi-gateway 与 pi 工作区中。开发者不运营或访问这些服务器。</li>
   <li><strong>本地缓存</strong>：App 会在设备的私有目录中缓存部分会话内容和状态，以改善加载速度和恢复体验。</li>
   <li><strong>AI Provider 凭据</strong>：当你登录或配置模型提供商时，相关凭据可能由你服务器上的 pi 保存，并可能在认证过程中发送给相应提供商。开发者不会收到这些凭据。</li>
@@ -101,7 +101,7 @@
 
 <h2>2. Where data is stored</h2>
 <ul>
-  <li><strong>Server and connection settings</strong>: gateway addresses, access tokens, SSH hosts, and credentials are stored on your device to connect to your own servers. Some sensitive credentials may be stored using secure storage provided by the operating system.</li>
+  <li><strong>Server and connection settings</strong>: connection details such as gateway addresses and SSH hosts are stored on your device. On iOS, gateway access tokens, SSH passwords, and managed SSH private keys are stored in the system Keychain and are not written to UserDefaults.</li>
   <li><strong>Conversations and workspaces</strong>: sessions, messages, files, and tool state are primarily stored by the ohpi-gateway and pi workspace you configure. The developer does not operate or access those servers.</li>
   <li><strong>Local cache</strong>: the app caches some conversation content and state in its private on-device directory to improve loading and recovery.</li>
   <li><strong>AI provider credentials</strong>: when you sign in to or configure a model provider, credentials may be stored by pi on your server and may be sent to that provider during authentication. The developer does not receive those credentials.</li>
