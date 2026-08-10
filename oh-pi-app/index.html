@@ -56,6 +56,7 @@
 
 <h2>3. AI 提供商与远程工具</h2>
 <p>当你发送消息或使用模型功能时，你服务器上的 pi 可能把完成请求所需的数据发送给你选择的 AI 提供商，例如提示词、对话上下文、你选择的图片或文件、工具输出，以及请求所需的技术元数据。AI 提供商可能依照其自己的条款和隐私政策处理、保留或使用这些数据。开发者无法控制 AI 提供商的处理方式；请在使用前查看相应提供商的政策，并避免提交不希望其处理的敏感信息。</p>
+<p>在 iOS 上，App 会在首次经由某个已配置服务器向特定 AI 提供商发送内容前，显示原生提示并取得你的明确授权。授权选择仅保存在当前设备上；你可以在“设置 → 关于 → AI 数据授权”中重置，重置后 App 会在下次发送前再次询问。</p>
 <p>你授权的远程工具可能读取或修改远程服务器上的文件、执行命令或访问其他资源。工具结果可能显示在对话中，并可能作为后续上下文发送给所选 AI 提供商。这些操作发生在你控制的远程服务器上，而不是在 iOS 设备上执行。</p>
 
 <h2>4. 系统权限与外部链接</h2>
@@ -109,6 +110,7 @@
 
 <h2>3. AI providers and remote tools</h2>
 <p>When you send a message or use model features, pi on your server may send data needed to fulfill the request to the AI provider you select. This may include prompts, conversation context, images or files you select, tool output, and technical metadata needed for the request. AI providers may process, retain, or use this data under their own terms and privacy policies. The developer does not control an AI provider's processing. Review the relevant provider's policy before use and avoid submitting sensitive information you do not want that provider to process.</p>
+<p>On iOS, before content is first sent to a particular AI provider through each configured server, the app displays a native disclosure and obtains your explicit permission. The permission choice is stored only on the current device. You can reset it under Settings → About → AI data permissions, after which the app asks again before the next send.</p>
 <p>Remote tools you authorize may read or modify files, run commands, or access other resources on your remote server. Tool results may appear in the conversation and may be included as context sent to the selected AI provider. These actions take place on a remote server you control, not on the iOS device.</p>
 
 <h2>4. System permissions and external links</h2>
