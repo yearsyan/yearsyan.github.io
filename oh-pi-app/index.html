@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Oh Pi App 隐私政策及数据处理说明。">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://yearsyan.github.io/oh-pi-app/">
+<title>Oh Pi App 隐私政策 / Privacy Policy</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Helvetica Neue", sans-serif;
+    max-width: 760px;
+    margin: 40px auto;
+    padding: 0 20px;
+    line-height: 1.72;
+    color: #1c1c1e;
+    background: #fff;
+  }
+  h1 { font-size: 1.65em; line-height: 1.3; }
+  h2 { font-size: 1.16em; margin-top: 1.8em; }
+  a { color: #0066cc; }
+  .summary { padding: 14px 16px; border-radius: 12px; background: #f2f2f7; }
+  .en { color: #555; }
+  hr { border: none; border-top: 1px solid #e5e5ea; margin: 40px 0; }
+  footer { margin: 40px 0 60px; color: #6e6e73; font-size: 0.9em; }
+  @media (prefers-color-scheme: dark) {
+    body { color: #f2f2f7; background: #000; }
+    a { color: #64a8ff; }
+    .summary { background: #1c1c1e; }
+    .en { color: #c7c7cc; }
+    hr { border-top-color: #38383a; }
+    footer { color: #98989d; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Oh Pi App 隐私政策</h1>
+<p><strong>生效日期：2026 年 8 月 10 日</strong> · <a href="#en">English below</a></p>
+
+<p class="summary">Oh Pi App 是连接你自建 ohpi-gateway 和 AI 服务的远程客户端。开发者不运营数据中转服务器，也不会通过 App 自动收集你的对话、账号或使用数据。为了提供你主动请求的功能，App 会把数据发送到你配置的服务器；服务器上的 pi 还可能把相关内容发送给你选择的 AI 提供商。</p>
+
+<h2>1. 开发者处理的信息</h2>
+<p>Oh Pi App 没有自有账号系统、广告或分析 SDK，不使用 IDFA 或跨 App 跟踪技术，也不会向开发者发送对话内容、使用统计或广告数据。</p>
+<p>如果你主动通过电子邮件联系我们，我们会收到你的邮件地址、邮件内容以及你选择提供的诊断信息，并仅将这些信息用于回复和处理支持请求。请勿在支持邮件中发送密码、访问令牌、私钥或不必要的敏感信息。</p>
+
+<h2>2. 数据存储位置</h2>
+<ul>
+  <li><strong>服务器和连接配置</strong>：网关地址、访问令牌、SSH 主机和凭据保存在你的设备上，用于连接你自己的服务器。部分敏感凭据可能保存在操作系统提供的安全存储中。</li>
+  <li><strong>对话与工作区</strong>：会话、消息、文件和工具状态主要保存在你配置的 ohpi-gateway 与 pi 工作区中。开发者不运营或访问这些服务器。</li>
+  <li><strong>本地缓存</strong>：App 会在设备的私有目录中缓存部分会话内容和状态，以改善加载速度和恢复体验。</li>
+  <li><strong>AI Provider 凭据</strong>：当你登录或配置模型提供商时，相关凭据可能由你服务器上的 pi 保存，并可能在认证过程中发送给相应提供商。开发者不会收到这些凭据。</li>
+</ul>
+
+<h2>3. AI 提供商与远程工具</h2>
+<p>当你发送消息或使用模型功能时，你服务器上的 pi 可能把完成请求所需的数据发送给你选择的 AI 提供商，例如提示词、对话上下文、你选择的图片或文件、工具输出，以及请求所需的技术元数据。AI 提供商可能依照其自己的条款和隐私政策处理、保留或使用这些数据。开发者无法控制 AI 提供商的处理方式；请在使用前查看相应提供商的政策，并避免提交不希望其处理的敏感信息。</p>
+<p>你授权的远程工具可能读取或修改远程服务器上的文件、执行命令或访问其他资源。工具结果可能显示在对话中，并可能作为后续上下文发送给所选 AI 提供商。这些操作发生在你控制的远程服务器上，而不是在 iOS 设备上执行。</p>
+
+<h2>4. 系统权限与外部链接</h2>
+<ul>
+  <li><strong>本地网络</strong>：用于连接你在局域网中的 ohpi-gateway 或 SSH 主机。</li>
+  <li><strong>照片</strong>：只有在你选择图片或主动保存聊天图片时，App 才会读取你通过系统照片选择器提供的项目或向照片图库写入内容。你发送的图片可能经由自建服务器交给所选 AI 提供商处理。</li>
+  <li><strong>网页与外部链接</strong>：iOS App 仅在内置网页视图中显示 localhost、回环 IP 和 <code>.localhost</code> 的页面。其他链接交给系统默认浏览器，其数据处理受目标网站和浏览器的隐私政策约束。</li>
+</ul>
+
+<h2>5. 数据传输与安全</h2>
+<p>App 直接连接你配置的服务器，数据不经过开发者控制的中转服务。SSH 隧道由 SSH 加密；HTTPS/WSS 连接由 TLS 加密。HTTP/WS 连接不提供传输加密，只应在可信网络中使用。你负责维护服务器、证书、账号、访问令牌和备份的安全。</p>
+
+<h2>6. 保留、删除与卸载</h2>
+<ul>
+  <li>你可以在设置中删除服务器配置，并单独删除保存的 SSH 密钥。</li>
+  <li>删除会话时，App 会请求你配置的服务器删除相应会话；实际删除结果和备份保留取决于你的服务器配置。</li>
+  <li>卸载 App 通常会删除 App 容器中的配置和缓存，但 iOS 可能保留系统钥匙串中的项目。若要完整移除本地凭据，请先在 App 设置中删除相关服务器配置和 SSH 密钥，再卸载 App。</li>
+  <li>AI 提供商收到的数据按其自己的保留与删除政策处理；如需删除，请使用相应提供商提供的控制方式。</li>
+</ul>
+
+<h2>7. 第三方服务</h2>
+<p>除你配置的服务器和 AI 提供商外，App 不集成广告、行为分析或数据经纪服务。本隐私政策页面由 GitHub Pages 托管；访问该页面时，GitHub 可能依照其<a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">隐私声明</a>处理 IP 地址和常规网络日志。外部网站和系统浏览器也适用其各自政策。</p>
+
+<h2>8. 儿童隐私</h2>
+<p>本 App 不面向 13 岁以下儿童。开发者不会有意收集儿童的个人信息。</p>
+
+<h2>9. 政策更新</h2>
+<p>如本政策发生变化，我们将在本页面更新内容和生效日期。重大变化也可能通过版本说明或 App 内提示告知。</p>
+
+<h2>10. 联系我们</h2>
+<p>如有隐私或支持问题，请发送邮件至：<a href="mailto:yearsyan@hotmail.com">yearsyan@hotmail.com</a></p>
+
+<hr>
+
+<h1 id="en">Oh Pi App Privacy Policy</h1>
+<p><strong>Effective date: August 10, 2026</strong></p>
+
+<p class="summary">Oh Pi App is a remote client that connects to your self-hosted ohpi-gateway and AI services. The developer does not operate a data relay server and does not automatically collect your conversations, account information, or app-usage data. To provide features you request, the app sends data to servers you configure, and pi on those servers may send relevant content to the AI provider you select.</p>
+
+<h2>1. Information handled by the developer</h2>
+<p>Oh Pi App has no first-party account system, advertising, or analytics SDKs. It does not use IDFA or cross-app tracking and does not send conversation content, usage analytics, or advertising data to the developer.</p>
+<p>If you voluntarily contact us by email, we receive your email address, message, and any diagnostic information you choose to include. We use it only to respond to and handle your support request. Do not send passwords, access tokens, private keys, or unnecessary sensitive information in support email.</p>
+
+<h2>2. Where data is stored</h2>
+<ul>
+  <li><strong>Server and connection settings</strong>: gateway addresses, access tokens, SSH hosts, and credentials are stored on your device to connect to your own servers. Some sensitive credentials may be stored using secure storage provided by the operating system.</li>
+  <li><strong>Conversations and workspaces</strong>: sessions, messages, files, and tool state are primarily stored by the ohpi-gateway and pi workspace you configure. The developer does not operate or access those servers.</li>
+  <li><strong>Local cache</strong>: the app caches some conversation content and state in its private on-device directory to improve loading and recovery.</li>
+  <li><strong>AI provider credentials</strong>: when you sign in to or configure a model provider, credentials may be stored by pi on your server and may be sent to that provider during authentication. The developer does not receive those credentials.</li>
+</ul>
+
+<h2>3. AI providers and remote tools</h2>
+<p>When you send a message or use model features, pi on your server may send data needed to fulfill the request to the AI provider you select. This may include prompts, conversation context, images or files you select, tool output, and technical metadata needed for the request. AI providers may process, retain, or use this data under their own terms and privacy policies. The developer does not control an AI provider's processing. Review the relevant provider's policy before use and avoid submitting sensitive information you do not want that provider to process.</p>
+<p>Remote tools you authorize may read or modify files, run commands, or access other resources on your remote server. Tool results may appear in the conversation and may be included as context sent to the selected AI provider. These actions take place on a remote server you control, not on the iOS device.</p>
+
+<h2>4. System permissions and external links</h2>
+<ul>
+  <li><strong>Local network</strong>: used to connect to an ohpi-gateway or SSH host on your local network.</li>
+  <li><strong>Photos</strong>: the app accesses items you provide through the system photo picker or writes to your photo library only when you choose an image or save a chat image. Images you send may be passed through your self-hosted server to the selected AI provider for processing.</li>
+  <li><strong>Web pages and external links</strong>: on iOS, the in-app web view is limited to pages using localhost, a loopback IP address, or a <code>.localhost</code> domain. Other links open in the system's default browser, where the destination website's and browser's privacy policies apply.</li>
+</ul>
+
+<h2>5. Data transmission and security</h2>
+<p>The app connects directly to servers you configure; data does not pass through a relay service controlled by the developer. SSH tunnels are encrypted by SSH, and HTTPS/WSS connections are encrypted with TLS. HTTP/WS connections are not transport-encrypted and should be used only on trusted networks. You are responsible for the security of your servers, certificates, accounts, access tokens, and backups.</p>
+
+<h2>6. Retention, deletion, and uninstalling</h2>
+<ul>
+  <li>You can delete server configurations in Settings and separately delete stored SSH keys.</li>
+  <li>When you delete a session, the app asks your configured server to delete that session. The actual deletion result and backup retention depend on your server configuration.</li>
+  <li>Uninstalling the app normally removes settings and cache in the app container, but iOS may retain items stored in the system Keychain. To fully remove local credentials, delete the relevant server configurations and SSH keys in the app before uninstalling it.</li>
+  <li>Data received by an AI provider is retained and deleted under that provider's policies. Use the controls provided by the relevant provider to request deletion.</li>
+</ul>
+
+<h2>7. Third-party services</h2>
+<p>Other than servers and AI providers you configure, the app does not integrate advertising, behavioral analytics, or data-broker services. This privacy-policy page is hosted by GitHub Pages. When you visit it, GitHub may process IP addresses and standard network logs under its <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">Privacy Statement</a>. External websites and system browsers are also governed by their own policies.</p>
+
+<h2>8. Children's privacy</h2>
+<p>The app is not directed to children under 13. The developer does not knowingly collect personal information from children.</p>
+
+<h2>9. Policy changes</h2>
+<p>If this policy changes, we will update this page and its effective date. Material changes may also be communicated in release notes or in the app.</p>
+
+<h2>10. Contact us</h2>
+<p>For privacy or support questions, email: <a href="mailto:yearsyan@hotmail.com">yearsyan@hotmail.com</a></p>
+
+<footer>Oh Pi App · Privacy policy hosted on GitHub Pages</footer>
+</body>
+</html>
