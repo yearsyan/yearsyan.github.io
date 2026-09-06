@@ -38,7 +38,7 @@
 <body>
 
 <h1>Oh Pi App 隐私政策</h1>
-<p><strong>生效日期：2026 年 8 月 10 日</strong> · <a href="#en">English below</a></p>
+<p><strong>生效日期：2026 年 9 月 7 日</strong> · <a href="#en">English below</a></p>
 
 <p class="summary">Oh Pi App 是连接你自建 ohpi-gateway 和 AI 服务的远程客户端。开发者不运营数据中转服务器，也不会通过 App 自动收集你的对话、账号或使用数据。为了提供你主动请求的功能，App 会把数据发送到你配置的服务器；服务器上的 pi 还可能把相关内容发送给你选择的 AI 提供商。</p>
 
@@ -58,6 +58,8 @@
 <p>当你发送消息或使用模型功能时，你服务器上的 pi 可能把完成请求所需的数据发送给你选择的 AI 提供商，例如提示词、对话上下文、你选择的图片或文件、工具输出，以及请求所需的技术元数据。AI 提供商可能依照其自己的条款和隐私政策处理、保留或使用这些数据。开发者无法控制 AI 提供商的处理方式；请在使用前查看相应提供商的政策，并避免提交不希望其处理的敏感信息。</p>
 <p>在 iOS 上，App 会在首次经由某个已配置服务器向特定 AI 提供商发送内容前，显示原生提示并取得你的明确授权。授权选择仅保存在当前设备上；你可以在“设置 → 关于 → AI 数据授权”中重置，重置后 App 会在下次发送前再次询问。</p>
 <p>你授权的远程工具可能读取或修改远程服务器上的文件、执行命令或访问其他资源。工具结果可能显示在对话中，并可能作为后续上下文发送给所选 AI 提供商。这些操作发生在你控制的远程服务器上，而不是在 iOS 设备上执行。</p>
+
+<p>在 iOS 上创建或编辑启用中的定时任务、启用任务或立即运行任务前，App 会单独请求 AI 数据发送授权，并保存授权时显示的具体模型。启用的任务可能在 App 关闭后按计划或 HTTP 触发器继续运行。请在定时任务页暂停或删除任务来停止后续自动运行；重置聊天授权不会停止服务器上的任务。</p>
 
 <h2>4. 系统权限与外部链接</h2>
 <ul>
@@ -92,7 +94,7 @@
 <hr>
 
 <h1 id="en">Oh Pi App Privacy Policy</h1>
-<p><strong>Effective date: August 10, 2026</strong></p>
+<p><strong>Effective date: September 7, 2026</strong></p>
 
 <p class="summary">Oh Pi App is a remote client that connects to your self-hosted ohpi-gateway and AI services. The developer does not operate a data relay server and does not automatically collect your conversations, account information, or app-usage data. To provide features you request, the app sends data to servers you configure, and pi on those servers may send relevant content to the AI provider you select.</p>
 
@@ -112,6 +114,8 @@
 <p>When you send a message or use model features, pi on your server may send data needed to fulfill the request to the AI provider you select. This may include prompts, conversation context, images or files you select, tool output, and technical metadata needed for the request. AI providers may process, retain, or use this data under their own terms and privacy policies. The developer does not control an AI provider's processing. Review the relevant provider's policy before use and avoid submitting sensitive information you do not want that provider to process.</p>
 <p>On iOS, before content is first sent to a particular AI provider through each configured server, the app displays a native disclosure and obtains your explicit permission. The permission choice is stored only on the current device. You can reset it under Settings → About → AI data permissions, after which the app asks again before the next send.</p>
 <p>Remote tools you authorize may read or modify files, run commands, or access other resources on your remote server. Tool results may appear in the conversation and may be included as context sent to the selected AI provider. These actions take place on a remote server you control, not on the iOS device.</p>
+
+<p>On iOS, creating or editing an enabled scheduled task, enabling a task, or running it immediately requires a separate AI data-sharing approval. The task saves the specific model shown in the disclosure. Enabled tasks may continue on their schedule or HTTP trigger while the app is closed. Pause or delete tasks to stop future automatic runs; resetting chat permissions does not stop tasks on your server.</p>
 
 <h2>4. System permissions and external links</h2>
 <ul>
